@@ -4,25 +4,27 @@
         <title>Portfolio Website</title>
         <link rel="icon" href="A.png">
         <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <div class="loader-wrapper">
             <div class="loader"></div>
         </div>
         <div class="header">
-        <nav>
-            <ul>
-                <img src="A.png" alt="" class="logoimage">
-                <li><a href="">Resume</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            </ul>
-        </nav>
+            <div class="hamburger" onclick="toggleSidebar()"></div>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>            
         <div class="sticky">
             <nav>
                 <ul>
-                    <img src="A.png" alt="" class="logoimage">
+
                     <li><a href="resume.pdf" download>Resume</a></li>
                 <li><a href="#" onclick="scrollToElement1(); return false;">Skills</a></li>
                 <li><a href="#" onclick="scrollToElement2(); return false;">Projects</a></li>
@@ -150,11 +152,10 @@
                 <path fill="#2100c4" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"></path><path fill="#ddbaff" d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z"></path><path fill="#ddbaff" d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z"></path><path fill="#ddbaff" d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z"></path><path fill="#ddbaff" d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z"></path>
                 </svg></a>
             </div>
-
         </div><br><br>
     </div><br><br><br><br><br>
     <div class="heading">
-        <h1>About</h1>
+        <h1>Profile</h1>
         </div>
     <div class="about">
         <div class="box">
@@ -166,93 +167,162 @@
         </div>
         </div>
     </div><br><br><br><br><br>
-        <h1>Skills</h1>
-        <div class="description" id="description">
-            
-            <div class="box1">
-                <h2>Javascript</h2><br>
-                <img src="A9.png" alt=""><br><br>
-                <p>JavaScript (JS) is a lightweight interpreted (or just-in-time compiled) programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.</p>
+    <div class="body2" id="body2">
+    <div class="container2">
+        <h1>ABOUT Rishabh</h1>
+        <h2>Frontend Developer</h2>
+        <div class="section">
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+                <p>Dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
             </div>
-            <div class="box2">
-                <h2>React</h2><br>
-                <img src="B.png" alt=""><br><br>
-                <p>React is a popular JavaScript library used for building user interfaces, especially for single-page applications. Developed and maintained by Facebook, React allows developers to create large web applications that can update and render efficiently in response to data changes.</p>
-            </div>
-            <div class="box3">
-                <h2>Bootstrap</h2><br>
-                <img src="B3.jpeg" alt=""><br><br>
-                <p>Bootstrap is a popular front-end framework used for designing responsive and mobile-first websites. It provides a collection of HTML, CSS, and JavaScript components that make it easier to create well-designed and consistent web pages.</p>
-            </div>
-        </div>
-        <div class="Projects" id="projects">
-            <h1>Projects</h1><br><br>
-            <div class="project1">
-                <h2>Sno</h2>
-                <h2>
-                    Project Name
-                </h2>
-                <h2>Description</h2>
-                
-            </div>
-            <div class="project2">
-                <h2>1</h2>
-                <h2>
-                    ToDoList => 
-                </h2>
-                <p>It is an application to store and manage daily basis tasks</p>
-            </div>
-            <div class="project3">
-                <h2>2</h2>
-                <h2>
-                    Portfolio Website => 
-                </h2>
-                <p>A website which introduces me and describes my skills and projects</p>
-            </div>
-            <div class="project4">
-                <h2>3</h2>
-                <h2>
-                    CoinSphere => 
-                </h2>
-                <p>A cryptocurrency application</p>
-            </div>
-            <div class="project5">
-                <h2>4</h2>
-                <h2>
-                    SoundSphere => 
-                </h2>
-                <p>A music streaming site</p>
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-name">Web Design <span class="skill-percentage">95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Mobile Apps <span class="skill-percentage">80%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">SEO Stuffs <span class="skill-percentage">70%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">HTML5 & CSS3 <span class="skill-percentage">90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                </div>
             </div>
         </div>
+    </div>
+    <section class="skills-section">
+        <h2>My Skills</h2>
+        <div class="carousel">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+                <div class="skill-card">
+                  <img src="B9.png" alt="HTML logo" class="skill-image">
+                  <h3>HTML</h3>
+                  <p>Markup Language</p>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="skill-card">
+                  <img src="B3.jpeg" alt="CSS logo" class="skill-image">
+                  <h3>Bootstrap</h3>
+                  <p>Framework</p>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="skill-card">
+                  <img src="A9.png" alt="JavaScript logo" class="skill-image">
+                  <h3>JavaScript</h3>
+                  <p>Scripting Language</p>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="skill-card">
+                  <img src="B.png" alt="React logo" class="skill-image">
+                  <h3>React</h3>
+                  <p>JS Framework</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button left-btn">◀</button>
+          <button class="carousel-button right-btn">▶</button>
+        </div>
+      </section>
+    </div>
+    <section class="projects-section" id="projects-section">
+        <h2 class="section-title">Projects</h2>
+      
+          <div class="project-card">
+            <img src="C3.png" alt="Project 2" class="project-image" />
+            <div class="project-info">
+              <h3 class="project-title" style="color: black;">CryptoSphere</h3>
+              <p class="project-description" style="color: black;">A cryptocurrency app for daily crypto updates</p>
+              <a href="https://github.com/AlieenBotrishabh" target="_blank" class="github-link">GitHub</a>
+            </div>
+            <div class="project-details" style="display: none;">
+              <p>CryptoSphere provides real-time updates on cryptocurrency prices, market trends, and portfolio tracking, helping users stay informed in the dynamic crypto market.</p>
+            </div>
+          </div>
+      
+          <div class="project-card">
+            <img src="C6.png" alt="Project 3" class="project-image" />
+            <div class="project-info">
+              <h3 class="project-title" style="color: black;">Expense Tracker Website</h3>
+              <p class="project-description" style="color: black;">A website for personal budgeting and tracking expenses</p>
+              <a href="https://github.com/AlieenBotrishabh/Expense-Tracking-Website" target="_blank" class="github-link">GitHub</a>
+            </div>
+            <div class="project-details" style="display: none;">
+              <p>This expense tracker allows users to manage their budgets, categorize expenses, and visualize spending trends over time, making personal finance management easier.</p>
+            </div>
+          </div>
+      
+          <!-- Add more project cards as needed -->
+        </div>
+      </section>
+
+
+      <section class="contact-section" id="contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </section>
+      
+      
+      
+      
+      
         <br><br>
-        <footer class="footer" id="footer">
-            <div class="footer-container">
+        <footer class="footer-section">
+            <div class="footer-content">
                 <div class="footer-section">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <p>Subscribe to our newsletter</p>
-                    <input type="email" placeholder="Enter your email" class="footer-input">
-                    <button>Subscribe</button>
-                </div>
-                <div class="footer-section">
-                    <p>Follow us</p>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/in/rishabh-kumar-932692291/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
-                            <path fill="#0078d4" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z"></path><path d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364	c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274	L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479	C18,16.523,16.521,18,14.485,18H18v19H11z" opacity=".05"></path><path d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677	c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638	c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001	c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z" opacity=".07"></path><path fill="#fff" d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12	c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698	c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19	c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"></path>
-                            </svg></a></li>
-                        <li><a href="https://github.com/AlieenBotrishabh"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
-                            <path fill="#2100c4" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"></path><path fill="#ddbaff" d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z"></path><path fill="#ddbaff" d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z"></path><path fill="#ddbaff" d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z"></path><path fill="#ddbaff" d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z"></path>
-                            </svg></a></li>
+                    <p>Follow Me</p>
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.linkedin.com/in/rishabh-kumar-932692291/" class="social-icon" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                    <path fill="#0078d4" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z"></path>
+                                    <path d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364	c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274	L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479	C18,16.523,16.521,18,14.485,18H18v19H11z" opacity=".05"></path>
+                                    <path d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677	c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638	c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001	c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z" opacity=".07"></path>
+                                    <path fill="#fff" d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12	c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698	c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19	c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/AlieenBotrishabh" class="social-icon" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                    <path fill="#2100c4" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"></path>
+                                    <path fill="#ddbaff" d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z"></path>
+                                    <path fill="#ddbaff" d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z"></path>
+                                    <path fill="#ddbaff" d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z"></path>
+                                    <path fill="#ddbaff" d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z"></path>
+                                </svg>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </footer>
+        
     </body>
     <script>
         window.addEventListener('load', function () {
@@ -262,14 +332,125 @@
         }, 2000); // Change 2000 to the time you want in milliseconds (e.g., 3000 for 3 seconds)
     });
         function scrollToElement1() {
-            document.getElementById('description').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('body2').scrollIntoView({ behavior: 'smooth' });
         }
         function scrollToElement2() {
-            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('projects-section').scrollIntoView({ behavior: 'smooth' });
         }
         function scrollToElement3() {
-            document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
         }
+
+
+
+        function toggleSidebar() {
+    document.body.classList.toggle('sidebar-open');
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 500);
+            });
+        });
+        const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.right-btn');
+const prevButton = document.querySelector('.left-btn');
+
+let slideWidth = slides[0].getBoundingClientRect().width; // Initial slide width
+
+// Arrange the slides next to one another based on slide width
+const setSlidePosition = () => {
+  slideWidth = slides[0].getBoundingClientRect().width; // Recalculate width
+  slides.forEach((slide, index) => {
+    slide.style.left = slideWidth * index + 'px';
+  });
+};
+
+setSlidePosition(); // Call initially to set positions
+
+const moveToSlide = (track, currentSlide, targetSlide) => {
+  track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+  currentSlide.classList.remove('current-slide');
+  targetSlide.classList.add('current-slide');
+};
+
+// Function to move to the next slide automatically
+const nextSlide = () => {
+  const currentSlide = track.querySelector('.current-slide');
+  const nextSlide = currentSlide.nextElementSibling || slides[0]; // Go to the first slide after the last one
+  moveToSlide(track, currentSlide, nextSlide);
+};
+
+// Function to move to the previous slide manually
+const prevSlide = () => {
+  const currentSlide = track.querySelector('.current-slide');
+  const prevSlide = currentSlide.previousElementSibling || slides[slides.length - 1]; // Go to the last slide if on the first one
+  moveToSlide(track, currentSlide, prevSlide);
+};
+
+// Set a fixed interval for each slide (e.g., 3 seconds for each)
+let currentIndex = 0;
+const slideInterval = 3000; // 3 seconds for each slide
+
+// Function to start auto sliding
+const startAutoSlide = () => {
+  autoSlideInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length; // Cycle through the slides
+    const currentSlide = track.querySelector('.current-slide');
+    const nextSlide = slides[currentIndex]; // Go to the next slide based on index
+    moveToSlide(track, currentSlide, nextSlide);
+  }, slideInterval);
+};
+
+// Manual slide navigation
+nextButton.addEventListener('click', () => {
+  clearInterval(autoSlideInterval);  // Pause auto slide on manual action
+  nextSlide();
+  startAutoSlide();  // Restart auto slide
+});
+
+prevButton.addEventListener('click', () => {
+  clearInterval(autoSlideInterval);  // Pause auto slide on manual action
+  prevSlide();
+  startAutoSlide();  // Restart auto slide
+});
+
+// Responsive behavior: Recalculate slide width on window resize
+window.addEventListener('resize', () => {
+  setSlidePosition(); // Adjust slide positions based on new width
+  const currentSlide = track.querySelector('.current-slide');
+  track.style.transform = 'translateX(-' + currentSlide.style.left + ')'; // Maintain current slide position
+});
+
+// Start auto sliding
+let autoSlideInterval = setInterval(startAutoSlide, slideInterval);
+
+
+
+// Select all project cards
+const projectCards = document.querySelectorAll('.project-card');
+
+// Add click event listener to each project card
+projectCards.forEach(card => {
+  card.addEventListener('click', () => {
+    // Toggle the display of project details
+    const details = card.querySelector('.project-details');
+    if (details.style.display === 'none' || details.style.display === '') {
+      details.style.display = 'block'; // Show details
+    } else {
+      details.style.display = 'none'; // Hide details
+    }
+  });
+});
+
+
         
 
       </script>
