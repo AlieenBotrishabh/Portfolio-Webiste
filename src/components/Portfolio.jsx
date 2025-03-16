@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import image from '../assets/A.png';
 import image2 from '../assets/A2.png';
 import image3 from '../assets/A3.png';
@@ -6,17 +7,38 @@ import image4 from '../assets/A4.png';
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "" });
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for reaching out!");
-    setFormData({ name: "", email: "" });
+  
+    try {
+      const response = await axios.post("http://localhost:5000/form", formData);
+      setMessage(response.data.msg);
+  
+      // Clear form data
+      setFormData({ name: "", email: "" });
+  
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setMessage("Submission failed. Please try again.");
+  
+      // Hide the error message after 3 seconds
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+    }
   };
+  
+
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header */}
@@ -131,141 +153,149 @@ export default function Portfolio() {
 
 
       {/* Projects Section */}
-      <section className="bg-black text-white py-16" id="projects">       
-  <div className="container mx-auto px-4">         
-    <h2 className="text-3xl font-bold mb-2">All Creative Works.</h2>         
-    <p className="text-gray-400 mb-4">Here's some of my projects that I have worked on.</p>         
-    <a href="https://github.com/AlieenBotrishabh" className="text-pink-400 mb-8 inline-block">Explore more →</a>                  
-    <div className="grid md:grid-cols-2 gap-8 mt-8">           
-      {/* Dummy Project Card 1 */}           
-      <div className="bg-gray-900 rounded-lg overflow-hidden">             
-        <div>                 
-          <img src={image} alt="Project Image" className="w-full h-48 object-cover" />             
-        </div>                          
-        <div className="p-4">               
-          <div className="flex justify-between items-center">                 
-            <h3 className="text-xl">Chatgpt Clone</h3>                 
-            <a href="https://github.com/AlieenBotrishabh/Chatgpt" className="text-gray-400 hover:text-white">                   
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">                     
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>                   
-              </svg>                 
-            </a>               
-          </div>               
-          <div className="flex gap-2 my-2">                 
-            <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">NodeJs</span>                 
-            <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">ExpressJs</span>               
-          </div>               
-          <p className="text-gray-400 text-sm">Brief description of the project.</p>             
-        </div>           
-      </div>         
+      <section className="bg-black text-white py-16" id="projects">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold mb-2">All Creative Works.</h2>
+    <p className="text-gray-400 mb-4">Here's some of my projects that I have worked on.</p>
+    <a href="https://github.com/AlieenBotrishabh" className="text-pink-400 mb-8 inline-block">Explore more →</a>
 
-      {/* Dummy Project Card 2 */}           
-      <div className="bg-gray-900 rounded-lg overflow-hidden">             
-        <div>                 
-          <img src={image2} alt="Project Image" className="w-full h-48 object-cover" />             
-        </div>                          
-        <div className="p-4">               
-          <div className="flex justify-between items-center">                 
-            <h3 className="text-xl">Companies Task Manager</h3>                 
-            <a href="https://github.com/AlieenBotrishabh/Companies-Task-Management" className="text-gray-400 hover:text-white">                   
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">                     
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>                   
-              </svg>                 
-            </a>               
-          </div>               
-          <div className="flex gap-2 my-2">                 
-            <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">NodeJs</span>                 
-            <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">ExpressJs</span>               
-          </div>               
-          <p className="text-gray-400 text-sm">Brief description of the project.</p>             
-        </div>           
-      </div>         
-    </div>     
-  </div>   
+    <div className="grid md:grid-cols-2 gap-8 mt-8">
+      {/* Project Card 1 */}
+      <div className="bg-gray-900 rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <div>
+          <img src={image} alt="Project Image" className="w-full h-48 object-cover" />
+        </div>
+        <div className="p-4">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl">Chatgpt Clone</h3>
+            <a href="https://github.com/AlieenBotrishabh/Chatgpt" className="text-gray-400 hover:text-white">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          <div className="flex gap-2 my-2">
+            <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">NodeJs</span>
+            <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">ExpressJs</span>
+          </div>
+          <p className="text-gray-400 text-sm">Brief description of the project.</p>
+        </div>
+      </div>
 
-  <div className="grid md:grid-cols-2 gap-8 mt-8">           
-      {/* Dummy Project Card 1 */}           
-      <div className="bg-gray-900 rounded-lg overflow-hidden">             
-        <div>                 
-          <img src={image3} alt="Project Image" className="w-full h-48 object-cover" />             
-        </div>                          
-        <div className="p-4">               
-          <div className="flex justify-between items-center">                 
-            <h3 className="text-xl">Expense Tracker Website</h3>                 
-            <a href="https://github.com/AlieenBotrishabh/Expense-Tracker-Prototype" className="text-gray-400 hover:text-white">                   
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">                     
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>                   
-              </svg>                 
-            </a>               
-          </div>               
-          <div className="flex gap-2 my-2">                 
-            <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">React</span>                 
-            <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Tailwind CSS</span>               
-          </div>               
-          <p className="text-gray-400 text-sm">Brief description of the project.</p>             
-        </div>           
-      </div>         
-
-      {/* Dummy Project Card 2 */}           
-      <div className="bg-gray-900 rounded-lg overflow-hidden">             
-        <div>                 
-          <img src={image4} alt="Project Image" className="w-full h-48 object-cover" />             
-        </div>                          
-        <div className="p-4">               
-          <div className="flex justify-between items-center">                 
-            <h3 className="text-xl">News App</h3>                 
-            <a href="#" className="text-gray-400 hover:text-white">                   
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">                     
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>                   
-              </svg>                 
-            </a>               
-          </div>               
-          <div className="flex gap-2 my-2">                 
-            <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>                 
-            <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">CSS</span>               
-          </div>               
-          <p className="text-gray-400 text-sm">Brief description of the project.</p>             
-        </div>           
-      </div>         
+      {/* Project Card 2 */}
+      <div className="bg-gray-900 rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <div>
+          <img src={image2} alt="Project Image" className="w-full h-48 object-cover" />
+        </div>
+        <div className="p-4">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl">Companies Task Manager</h3>
+            <a href="https://github.com/AlieenBotrishabh/Companies-Task-Management" className="text-gray-400 hover:text-white">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          <div className="flex gap-2 my-2">
+            <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">NodeJs</span>
+            <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">ExpressJs</span>
+          </div>
+          <p className="text-gray-400 text-sm">Brief description of the project.</p>
+        </div>
+      </div>
     </div>
+
+    <div className="grid md:grid-cols-2 gap-8 mt-8">
+      {/* Project Card 3 */}
+      <div className="bg-gray-900 rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <div>
+          <img src={image3} alt="Project Image" className="w-full h-48 object-cover" />
+        </div>
+        <div className="p-4">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl">Expense Tracker Website</h3>
+            <a href="https://github.com/AlieenBotrishabh/Expense-Tracker-Prototype" className="text-gray-400 hover:text-white">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          <div className="flex gap-2 my-2">
+            <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">React</span>
+            <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Tailwind CSS</span>
+          </div>
+          <p className="text-gray-400 text-sm">Brief description of the project.</p>
+        </div>
+      </div>
+
+      {/* Project Card 4 */}
+      <div className="bg-gray-900 rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <div>
+          <img src={image4} alt="Project Image" className="w-full h-48 object-cover" />
+        </div>
+        <div className="p-4">
+          <div className="flex justify-between items-center">
+            <h3 className="text-xl">News App</h3>
+            <a href="#" className="text-gray-400 hover:text-white">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          <div className="flex gap-2 my-2">
+            <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>
+            <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">CSS</span>
+          </div>
+          <p className="text-gray-400 text-sm">Brief description of the project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+
 <section className="container mx-auto px-4 py-16" id="contact">
-        <h2 className="text-3xl font-bold text-pink-400 text-center">Contact Me</h2>
-        <p className="text-gray-400 text-center mb-4">I'd love to hear from you!</p>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-          <div>
-            <label className="block text-gray-400">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              placeholder="Enter Your Name"
-              onChange={handleChange}
-              required
-              className="w-full p-2 mt-1 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
-            />
+      <h2 className="text-3xl font-bold text-pink-400 text-center">Contact Me</h2>
+      <p className="text-gray-400 text-center mb-4">I'd love to hear from you!</p>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+        <div>
+          <label className="block text-gray-400">Name</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            placeholder="Enter Your Name"
+            onChange={handleChange}
+            required
+            className="w-full p-2 mt-1 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-400">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter Your Email"
+            required
+            className="w-full p-2 mt-1 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 rounded"
+        >
+          Send Message
+        </button>
+
+        {message && (
+          <div className="mt-4 text-center text-green-400 bg-gray-800 p-2 rounded">
+            {message}
           </div>
-          <div>
-            <label className="block text-gray-400">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter Your Email"
-              required
-              className="w-full p-2 mt-1 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 rounded"
-          >
-            Send Message
-          </button>
-        </form>
-      </section>
+        )}
+      </form>
+    </section>
 
     </div>
   );
