@@ -1,7 +1,10 @@
-import { HashRouter } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css"; // Tailwind CSS (optional)
+import App from './App';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <HashRouter>
+  <React.StrictMode>
     <App />
-  </HashRouter>
+  </React.StrictMode>
 );
