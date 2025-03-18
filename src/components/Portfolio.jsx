@@ -4,6 +4,11 @@ import image from '../assets/A.png';
 import image2 from '../assets/A2.png';
 import image3 from '../assets/A3.png';
 import image4 from '../assets/A4.png';
+import html from '../assets/icons8-html-5.svg';
+import react from '../assets/icons8-react.svg';
+import nodejs from '../assets/icons8-nodejs.svg';
+import express from '../assets/icons8-express-js.svg';
+import mongodb from '../assets/icons8-mongodb.svg';
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "" });
@@ -37,6 +42,14 @@ export default function Portfolio() {
       }, 3000);
     }
   };
+
+  const skills = [
+    { name: "HTML", icon: html, description: "Building structured web pages with semantic HTML." },
+    { name: "React", icon: react, description: "Creating dynamic UIs with component-based architecture." },
+    { name: "Node.js", icon: nodejs, description: "Developing scalable backend applications with JavaScript." },
+    { name: "Express.js", icon: express, description: "Building fast and lightweight server-side applications." },
+    { name: "MongoDB", icon: mongodb, description: "Managing NoSQL databases for scalable data storage." },
+  ];
   
 
   return (
@@ -121,35 +134,20 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="skills" className="py-12 bg-gray-900 text-white">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-6">Skills</h2>
-
-    {/* Skill Progress Bars */}
-    <div className="space-y-6">
-      {[
-        { name: "HTML", level: "90%" },
-        { name: "React", level: "80%" },
-        { name: "Node.js", level: "75%" },
-        { name: "Express.js", level: "70%" },
-        { name: "MongoDB", level: "75%" },
-      ].map((skill, index) => (
-        <div key={index}>
-          <div className="flex justify-between mb-1">
-            <span>{skill.name}</span>
-            <span>{skill.level}</span>
-          </div>
-          <div className="w-full bg-gray-700 h-3 rounded-full">
-            <div
-              className="bg-pink-400 h-3 rounded-full"
-              style={{ width: skill.level }}
-            ></div>
-          </div>
+      <section className="py-12 bg-gray-900 text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">My Skills</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {skills.map((skill, index) => (
+            <div key={index} className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+              <img src={skill.icon} alt={skill.name} className="w-16 h-16 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
+              <p className="text-gray-400">{skill.description}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
 
       {/* Projects Section */}
