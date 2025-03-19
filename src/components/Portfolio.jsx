@@ -23,7 +23,7 @@ export default function Portfolio() {
     e.preventDefault();
   
     try {
-      const response = await axios.post("http://localhost:5000/form", formData);
+      const response = await axios.post("portfolio-webiste-68.vercel.app/form", formData);
       setMessage(response.data.msg);
   
       // Clear form data
