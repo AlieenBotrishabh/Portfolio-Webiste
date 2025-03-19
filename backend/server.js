@@ -8,13 +8,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-  {
-    origin: ["https://portfolio-webiste-68-git-complete-alieenbotrishabhs-projects.vercel.app/"],
-    methods: ["GET", "POST"],
-    credentials: true
-  }
-)); // To allow frontend to communicate with backend
+app.use(cors()); // To allow frontend to communicate with backend
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/personal', {
