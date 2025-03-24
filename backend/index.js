@@ -10,7 +10,15 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors()); // To allow frontend to communicate with backend
+app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://portfolio-webiste-obw7.vercel.app", // Allow only frontend requests
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);// To allow frontend to communicate with backend
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
