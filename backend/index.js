@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "https://portfolio-webiste-obw7.vercel.app", // Allow only frontend requests
+    origin: process.env.FRONTEND_URL, // Allow only frontend requests
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
