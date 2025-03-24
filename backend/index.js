@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,12 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors()); // To allow frontend to communicate with backend
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/personal', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => console.log("MongoDB connected successfully"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
 // Routes
 app.get('/', (req, res) => {
@@ -42,5 +44,4 @@ app.post('/form', async (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(process.env.BACKEND_PORT, () => console.log(`Server running on port ${process.env.BACKEND_PORT}`));
