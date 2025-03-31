@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { saveAs } from "file-saver";
 import { motion } from 'framer-motion';
 import image from '../assets/A.png';
 import image2 from '../assets/A2.png';
 import image3 from '../assets/A3.png';
 import image4 from '../assets/A4.png';
+import image5 from '../assets/A5.png';
+import image6 from '../assets/A6.png';
 import html from '../assets/icons8-html-5.svg';
+import css from '../assets/icons8-css-logo.svg';
+import tailwind from '../assets/icons8-tailwind-css.svg';
+import js from '../assets/icons8-javascript.svg';
+import ts from '../assets/icons8-typescript.svg';
 import react from '../assets/icons8-react.svg';
 import nodejs from '../assets/icons8-nodejs.svg';
 import express from '../assets/icons8-express-js.svg';
+import socket from '../assets/socket_io_logo_icon_144874.svg';
+import jwt from '../assets/icons8-jwt.svg';
+import graphql from '../assets/icons8-graphql.svg';
+import postgresql from '../assets/postgresql-icon.svg';
 import mongodb from '../assets/icons8-mongodb.svg';
 
 export default function Portfolio() {
@@ -45,13 +56,39 @@ export default function Portfolio() {
     }
   };
 
-  const skills = [
-    { name: "HTML", icon: html, description: "Building structured web pages with semantic HTML." },
-    { name: "React", icon: react, description: "Creating dynamic UIs with component-based architecture." },
-    { name: "Node.js", icon: nodejs, description: "Developing scalable backend applications with JavaScript." },
-    { name: "Express.js", icon: express, description: "Building fast and lightweight server-side applications." },
-    { name: "MongoDB", icon: mongodb, description: "Managing NoSQL databases for scalable data storage." },
-  ];
+  const handleDownload = () => {
+    const pdfUrl = "/Rishabh Kumar (2).pdf";
+    saveAs(pdfUrl, "Rishabh_Kumar_Resume.pdf");
+  };
+
+  const [selectedTab, setSelectedTab] = useState("frontend");
+
+  const skillsData = {
+    frontend: [
+      { name: "HTML", icon: html, description: "Used for static application and structuring"},
+      { name: "CSS", icon: css, description: "Used for styling the web apps"},
+      { name: "Javascript", icon: js, description: "Used for adding the functionality"},
+      { name: "React", icon: react, description: "Building dynamic UI." },
+      { name: "Tailwind CSS", icon: tailwind, description: "Utility-first styling." },
+      { name: "Typescript", icon: ts, description: "Static typing version of Javascript"}
+    ],
+    backend: [
+      { name: "Node.js", icon: nodejs, description: "Server-side development." },
+      { name : "Express.js", icon: express, description: "Framework for Node.js"},
+      { name: "Socket.io", icon: socket, description: "Two way communication"},
+      { name: "JSON Web Tokens", icon: jwt, description: "For authorized user login"}
+    ],
+
+    database: [
+      { name: "MongoDB", icon: mongodb, description: "NoSQL Database"},
+      { name: "GraphQL", icon: graphql, description: "Query language for NoSQL database"},
+      { name: "PostgreSQL", icon: postgresql, description: "Stuctured Query Language"},
+    ],
+    certifications: [
+      { name: "NPTEL Introduction to Intenet of Things", icon: image5, description: "Certified by NPTEL" },
+      { name: "Oracle Cloud Infrastructure 2024 Generative AI Certified Professional", icon: image6, description: "Genrative AI Professional certificate"},
+    ],
+  };
   
   // Animation variants
   const fadeIn = {
@@ -221,7 +258,7 @@ export default function Portfolio() {
             </motion.a>
             <motion.a 
               href="../assets/Rishabh Kumar (2).pdf" 
-              download 
+              onClick={handleDownload}
               className="flex items-center gap-2 bg-pink-500 text-white px-4 py-2 rounded-md"
               variants={fadeIn}
               whileHover={{ scale: 1.05, backgroundColor: "#ec4899" }}
@@ -289,50 +326,50 @@ export default function Portfolio() {
         </div>
       </motion.section>
 
-      {/* Skills Section */}
-      <motion.section 
-        className="py-12 bg-gray-900 text-white" 
-        id="skills"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeIn}
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-8"
-            variants={slideUp}
+      <motion.section
+      className="py-12 bg-gray-900 text-white flex"
+      id="skills"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {/* Sidebar Tabs */}
+      <div className="flex flex-col space-y-4 bg-gray-900 p-6 rounded-xl text-white font-bold mr-8">
+        {Object.keys(skillsData).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setSelectedTab(tab)}
+            className={`py-2 px-4 rounded-lg transition-all ${selectedTab === tab ? "bg-white text-gray-900" : "hover:bg-pink-600"}`}
           >
-            My Skills
-          </motion.h2>
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-            variants={staggerContainer}
-          >
-            {skills.map((skill, index) => (
-              <motion.div 
-                key={index} 
-                className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
-                variants={fadeIn}
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-                }}
-              >
-                <motion.img 
-                  src={skill.icon} 
-                  alt={skill.name} 
-                  className="w-16 h-16 mb-4"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.8 }}
-                />
-                <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
-                <p className="text-gray-400">{skill.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+          </button>
+        ))}
+      </div>
+      
+      {/* Skills Display */}
+      <div className="container mx-auto px-4">
+        <motion.h2 className="text-3xl font-bold mb-8">My Skills</motion.h2>
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {skillsData[selectedTab].map((skill, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.img
+                src={skill.icon}
+                alt={skill.name}
+                className="w-16 h-16 mb-4"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.8 }}
+              />
+              <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
+              <p className="text-gray-400">{skill.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
 
       {/* Projects Section */}
       <motion.section 
