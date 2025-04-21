@@ -8,6 +8,7 @@ import image3 from '../assets/A3.png';
 import image4 from '../assets/A4.png';
 import image5 from '../assets/A5.png';
 import image6 from '../assets/A6.png';
+import image7 from '../assets/A7.png';
 import html from '../assets/icons8-html-5.svg';
 import css from '../assets/icons8-css-logo.svg';
 import tailwind from '../assets/icons8-tailwind-css.svg';
@@ -306,7 +307,7 @@ export default function Portfolio() {
               variants={staggerContainer}
             >
               <motion.p variants={slideUp}>Hey! I'm Rishabh kumar. I am Passionate about web development and making Ai Powered applications.</motion.p>
-              <motion.p variants={slideUp}>I like to create applications by using <span className="text-pink-400">frontend and backend</span>back 2024, and from that, I explored how to code myself, fast-forward to today, I do programming in various languages and technologies such as <span className="text-pink-400">React, NodeJs, ExpressJs</span> and <span className="text-pink-400">Socket.io</span></motion.p>
+              <motion.p variants={slideUp}>I like to create applications by using <span className="text-pink-400">frontend and backend</span> back 2024, and from that, I explored how to code myself, fast-forward to today, I do programming in various languages and technologies such as <span className="text-pink-400">React, NodeJs, ExpressJs</span> and <span className="text-pink-400">Socket.io</span></motion.p>
               <motion.p variants={slideUp}>My hobbies is to play music and video games</motion.p>
             </motion.div>
           </motion.div>
@@ -432,7 +433,7 @@ export default function Portfolio() {
                   <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">NodeJs</span>
                   <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">ExpressJs</span>
                 </div>
-                <p className="text-gray-400 text-sm">Brief description of the project.</p>
+                <p className="text-gray-400 text-sm">A sleek and intelligent AI chatbot web app that replicates the functionality of ChatGPT using Google's Gemini API (formerly Bard). This clone provides a conversational AI experience powered by cutting-edge LLM technology, allowing users to interact with a smart assistant for a variety of tasks such as coding help, general knowledge questions, content writing, and more.</p>
               </div>
             </motion.div>
 
@@ -462,7 +463,7 @@ export default function Portfolio() {
                   <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">NodeJs</span>
                   <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">ExpressJs</span>
                 </div>
-                <p className="text-gray-400 text-sm">Brief description of the project.</p>
+                <p className="text-gray-400 text-sm">A comprehensive task management system for companies, enabling teams to efficiently track, assign, and manage tasks. Features include real-time collaboration, role-based access control, progress tracking, deadlines, and notifications.Activity</p>
               </div>
             </motion.div>
           </motion.div>
@@ -478,11 +479,11 @@ export default function Portfolio() {
               whileHover={{ y: -10 }}
             >
               <div>
-                <img src={image3} alt="Project Image" className="w-full h-48 object-cover" />
+                <img src={image7} alt="Project Image" className="w-full h-48 object-cover" />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl">Expense Tracker Website</h3>
+                  <h3 className="text-xl">Workout Trainer</h3>
                   <motion.a 
                     href="https://github.com/AlieenBotrishabh/Expense-Tracker-Prototype" 
                     className="text-gray-400 hover:text-white"
@@ -495,9 +496,9 @@ export default function Portfolio() {
                 </div>
                 <div className="flex gap-2 my-2">
                   <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">React</span>
-                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Tailwind CSS</span>
+                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Computer Vision</span>
                 </div>
-                <p className="text-gray-400 text-sm">Brief description of the project.</p>
+                <p className="text-gray-400 text-sm">Workout Trainer is a smart, AI-powered fitness app designed to help you perfect your form, track your progress, and stay motivated. Using real-time posture detection with PoseNet, the app provides instant feedback on exercises like squats, push-ups, lunges, planks, and curls. Whether you're a beginner or a pro, Workout Trainer keeps your workouts safe, effective, and data-driven.</p>
               </div>
             </motion.div>
 
@@ -527,7 +528,7 @@ export default function Portfolio() {
                   <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>
                   <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">CSS</span>
                 </div>
-                <p className="text-gray-400 text-sm">Brief description of the project.</p>
+                <p className="text-gray-400 text-sm">Stay ahead of the curve with real-time headlines, in-depth articles, and tailored news updates from trusted sources around the world. Whether it’s politics, sports, technology, entertainment, or local stories — our sleek and intuitive app keeps you connected to the news that matters most to you.</p>
               </div>
             </motion.div>
           </motion.div>
