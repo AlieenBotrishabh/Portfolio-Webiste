@@ -58,8 +58,8 @@ export default function Portfolio() {
   };
 
   const handleDownload = () => {
-    const pdfUrl = "/Rishabh Kumar (2).pdf";
-    saveAs(pdfUrl, "Rishabh_Kumar_Resume.pdf");
+    const pdfUrl = "/Rishabh Kumar (2)_250322_220818 (1)_250501_133526_250513_152136 (1) (1)_organized.pdf";
+    saveAs(pdfUrl, "Rishabh_Resume.pdf");
   };
 
   const [selectedTab, setSelectedTab] = useState("frontend");
@@ -79,7 +79,6 @@ export default function Portfolio() {
       { name: "Socket.io", icon: socket, description: "Two way communication"},
       { name: "JSON Web Tokens", icon: jwt, description: "For authorized user login"}
     ],
-
     database: [
       { name: "MongoDB", icon: mongodb, description: "NoSQL Database"},
       { name: "GraphQL", icon: graphql, description: "Query language for NoSQL database"},
@@ -121,6 +120,25 @@ export default function Portfolio() {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
   };
+
+  const educationData = [
+    {
+      year: "2022 - 2026",
+      degree: "Bachelor of Engineering in Computer Science Engineering",
+      school: "Chandigarh University",
+      description: "Pursuing a comprehensive computer science degree with focus on software development, algorithms, and system design. Actively involved in coding competitions and tech societies.",
+      skills: ["Data Structures", "Algorithms", "System Design", "Database Systems"],
+      side: "left"
+    },
+    {
+      year: "2010 - 2020",
+      degree: "Higher Secondary Education",
+      school: "St. Xavier's Sr. Sec. School",
+      description: "Completed 10th grade in ICSE",
+      skills: ["Mathematics", "Physics", "Chemistry", "Computer Science"],
+      side: "right"
+    },
+  ];
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -185,7 +203,7 @@ export default function Portfolio() {
             className="mb-8"
             variants={slideUp}
           >
-            <span className="text-2xl font-bold">A full stack developer</span>
+            <span className="text-2xl font-bold">A Software Engineer in India</span>
             <span className="text-gray-400 text-xl"> A self-taught developer with an interest in Computer Science.</span>
           </motion.div>
           <motion.div 
@@ -306,7 +324,7 @@ export default function Portfolio() {
               className="space-y-4 text-gray-400"
               variants={staggerContainer}
             >
-              <motion.p variants={slideUp}>Hey! I'm Rishabh kumar. I am Passionate about web development and making Ai Powered applications.</motion.p>
+              <motion.p variants={slideUp}>Hey! I'm Rishabh kumar. I am Passionate about Software Engineering, DevOps, Cloud and Database</motion.p>
               <motion.p variants={slideUp}>I like to create applications by using <span className="text-pink-400">frontend and backend</span> back 2024, and from that, I explored how to code myself, fast-forward to today, I do programming in various languages and technologies such as <span className="text-pink-400">React, NodeJs, ExpressJs</span> and <span className="text-pink-400">Socket.io</span></motion.p>
               <motion.p variants={slideUp}>My hobbies is to play music and video games</motion.p>
             </motion.div>
@@ -327,7 +345,246 @@ export default function Portfolio() {
         </div>
       </motion.section>
 
-      <motion.section
+          <section className="bg-black text-white py-16 px-4 relative overflow-hidden">
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-pink-500/10 to-cyan-500/10"
+            style={{
+              width: Math.random() * 60 + 20,
+              height: Math.random() * 60 + 20,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100],
+              rotate: [0, 360],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              delay: Math.random() * 20,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto max-w-6xl">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.h2 
+            className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
+            variants={slideUp}
+          >
+            Education
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-400 font-light"
+            variants={slideUp}
+          >
+            My academic journey and learning path
+          </motion.p>
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline Line */}
+          <motion.div 
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-pink-500 via-cyan-500 to-blue-500 rounded-full"
+            style={{ height: '100%' }}
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+          />
+
+          {/* Timeline Items */}
+          <motion.div 
+            className="space-y-16"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {educationData.map((item, index) => (
+              <motion.div
+                key={index}
+                className="relative flex items-center"
+                variants={fadeIn}
+              >
+                {/* Timeline Dot */}
+                <motion.div 
+                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full border-4 border-black z-10"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                {/* Content Card */}
+                <motion.div 
+                  className={`w-5/12 ${item.side === 'left' ? 'mr-auto' : 'ml-auto'}`}
+                  whileHover={{ 
+                    y: -8,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:border-pink-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/20">
+                    {/* Arrow */}
+                    <div className={`absolute top-1/2 transform -translate-y-1/2 w-0 h-0 ${
+                      item.side === 'left' 
+                        ? 'right-[-15px] border-l-[15px] border-l-white/10 border-t-[15px] border-b-[15px] border-t-transparent border-b-transparent' 
+                        : 'left-[-15px] border-r-[15px] border-r-white/10 border-t-[15px] border-b-[15px] border-t-transparent border-b-transparent'
+                    }`} />
+
+                    {/* Year */}
+                    <div className="text-pink-400 text-sm font-semibold uppercase tracking-wider mb-2">
+                      {item.year}
+                    </div>
+
+                    {/* Degree */}
+                    <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                      {item.degree}
+                    </h3>
+
+                    {/* School */}
+                    <div className="text-cyan-400 text-lg font-medium mb-4">
+                      {item.school}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-300 text-base leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2">
+                      {item.skills.map((skill, skillIndex) => (
+                        <motion.span
+                          key={skillIndex}
+                          className="bg-gradient-to-r from-pink-500/20 to-cyan-500/20 text-white px-3 py-1 rounded-full text-sm font-medium border border-white/20 hover:border-pink-500/50 transition-all duration-300"
+                          whileHover={{ 
+                            scale: 1.05,
+                            y: -2,
+                            boxShadow: "0 10px 25px rgba(236, 72, 153, 0.3)"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Mobile Timeline */}
+      <div className="md:hidden relative max-w-2xl mx-auto mt-16">
+        {/* Mobile Timeline Line */}
+        <motion.div 
+          className="absolute left-8 top-0 w-1 bg-gradient-to-b from-pink-500 via-cyan-500 to-blue-500 rounded-full"
+          style={{ height: '100%' }}
+          initial={{ opacity: 0, scaleY: 0 }}
+          animate={{ opacity: 1, scaleY: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+        />
+
+        {/* Mobile Timeline Items */}
+        <motion.div 
+          className="space-y-12"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {educationData.map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative flex items-start"
+              variants={fadeIn}
+            >
+              {/* Mobile Timeline Dot */}
+              <motion.div 
+                className="absolute left-8 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full border-4 border-black z-10"
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Mobile Content Card */}
+              <motion.div 
+                className="ml-16 w-full"
+                whileHover={{ 
+                  y: -4,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:border-pink-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/20">
+                  {/* Year */}
+                  <div className="text-pink-400 text-sm font-semibold uppercase tracking-wider mb-2">
+                    {item.year}
+                  </div>
+
+                  {/* Degree */}
+                  <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                    {item.degree}
+                  </h3>
+
+                  {/* School */}
+                  <div className="text-cyan-400 text-base font-medium mb-4">
+                    {item.school}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {item.skills.map((skill, skillIndex) => (
+                      <motion.span
+                        key={skillIndex}
+                        className="bg-gradient-to-r from-pink-500/20 to-cyan-500/20 text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20 hover:border-pink-500/50 transition-all duration-300"
+                        whileHover={{ 
+                          scale: 1.05,
+                          y: -2,
+                          boxShadow: "0 8px 20px rgba(236, 72, 153, 0.3)"
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+
+   <motion.section
       className="py-12 bg-gray-900 text-white flex"
       id="skills"
       initial="hidden"
@@ -340,35 +597,62 @@ export default function Portfolio() {
           <button
             key={tab}
             onClick={() => setSelectedTab(tab)}
-            className={`py-2 px-4 rounded-lg transition-all ${selectedTab === tab ? "bg-white text-gray-900" : "hover:bg-pink-600"}`}
+            className={`py-2 px-4 rounded-lg transition-all ${
+              selectedTab === tab ? "bg-white text-gray-900" : "hover:bg-pink-600"
+            }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>
         ))}
       </div>
-      
+
       {/* Skills Display */}
       <div className="container mx-auto px-4">
         <motion.h2 className="text-3xl font-bold mb-8">My Skills</motion.h2>
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {skillsData[selectedTab].map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.img
-                src={skill.icon}
-                alt={skill.name}
-                className="w-16 h-16 mb-4"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-              />
-              <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
-              <p className="text-gray-400">{skill.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        
+        {/* Conditional rendering based on selected tab */}
+        {selectedTab === 'certifications' ? (
+          // Certifications with full-size images
+          <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {skillsData[selectedTab].map((skill, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.img
+                  src={skill.icon}
+                  alt={`Certification ${index + 1}`}
+                  className="w-full h-auto object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          // Regular skills with icons, names, and descriptions
+          <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {skillsData[selectedTab].map((skill, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <motion.img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-16 h-16 mb-4"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                />
+                <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
+                <p className="text-gray-400">{skill.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </motion.section>
 
@@ -414,13 +698,13 @@ export default function Portfolio() {
               whileHover={{ y: -10 }}
             >
               <div>
-                <img src={image} alt="Project Image" className="w-full h-48 object-cover" />
+                <img src={image} alt="Project Image" className="w-full h-60 object-cover" />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl">Chatgpt Clone</h3>
+                  <h3 className="text-xl">Hotel Travel Planner</h3>
                   <motion.a 
-                    href="https://github.com/AlieenBotrishabh/Chatgpt" 
+                    href="https://github.com/AlieenBotrishabh/Hotel-Travel-Planner" 
                     className="text-gray-400 hover:text-white"
                     whileHover={{ scale: 1.2, rotate: 15 }}
                   >
@@ -430,10 +714,10 @@ export default function Portfolio() {
                   </motion.a>
                 </div>
                 <div className="flex gap-2 my-2">
-                  <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">NodeJs</span>
-                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">ExpressJs</span>
+                  <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">Nextjs</span>
+                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Google Maps API</span>
                 </div>
-                <p className="text-gray-400 text-sm">A sleek and intelligent AI chatbot web app that replicates the functionality of ChatGPT using Google's Gemini API (formerly Bard). This clone provides a conversational AI experience powered by cutting-edge LLM technology, allowing users to interact with a smart assistant for a variety of tasks such as coding help, general knowledge questions, content writing, and more.</p>
+                <p className="text-gray-400 text-sm">A responsive Trip Planner website built using Nextjs, Prisma ORM and Google Maps API</p>
               </div>
             </motion.div>
 
@@ -444,13 +728,13 @@ export default function Portfolio() {
               whileHover={{ y: -10 }}
             >
               <div>
-                <img src={image2} alt="Project Image" className="w-full h-48 object-cover" />
+                <img src={image2} alt="Project Image" className="w-full h-60 object-cover" />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl">Companies Task Manager</h3>
+                  <h3 className="text-xl">NextHire - A Job Portal</h3>
                   <motion.a 
-                    href="https://github.com/AlieenBotrishabh/Companies-Task-Management" 
+                    href="https://github.com/AlieenBotrishabh/NextHire-An-Online-Job-Portal" 
                     className="text-gray-400 hover:text-white"
                     whileHover={{ scale: 1.2, rotate: 15 }}
                   >
@@ -460,10 +744,10 @@ export default function Portfolio() {
                   </motion.a>
                 </div>
                 <div className="flex gap-2 my-2">
-                  <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">NodeJs</span>
+                  <span className="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">Node.Js</span>
                   <span className="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">ExpressJs</span>
                 </div>
-                <p className="text-gray-400 text-sm">A comprehensive task management system for companies, enabling teams to efficiently track, assign, and manage tasks. Features include real-time collaboration, role-based access control, progress tracking, deadlines, and notifications.Activity</p>
+                <p className="text-gray-400 text-sm">A Job Portal built using Reactjs, MongoDB, Express.js and Node.Js</p>
               </div>
             </motion.div>
           </motion.div>
@@ -479,13 +763,13 @@ export default function Portfolio() {
               whileHover={{ y: -10 }}
             >
               <div>
-                <img src={image7} alt="Project Image" className="w-full h-48 object-cover" />
+                <img src={image3} alt="Project Image" className="w-full h-48 object-cover" />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl">Workout Trainer</h3>
+                  <h3 className="text-xl">TogethrTask - An Advanced and Collaborative User Task Manager</h3>
                   <motion.a 
-                    href="https://github.com/AlieenBotrishabh/Expense-Tracker-Prototype" 
+                    href="https://github.com/AlieenBotrishabh/Advanced-Collaborative-User-Task-Manager" 
                     className="text-gray-400 hover:text-white"
                     whileHover={{ scale: 1.2, rotate: 15 }}
                   >
@@ -495,10 +779,10 @@ export default function Portfolio() {
                   </motion.a>
                 </div>
                 <div className="flex gap-2 my-2">
-                  <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">React</span>
-                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">Computer Vision</span>
+                  <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-xs">Express.Js</span>
+                  <span className="bg-pink-200 text-pink-800 px-2 py-1 rounded text-xs">MongoDb</span>
                 </div>
-                <p className="text-gray-400 text-sm">Workout Trainer is a smart, AI-powered fitness app designed to help you perfect your form, track your progress, and stay motivated. Using real-time posture detection with PoseNet, the app provides instant feedback on exercises like squats, push-ups, lunges, planks, and curls. Whether you're a beginner or a pro, Workout Trainer keeps your workouts safe, effective, and data-driven.</p>
+                <p className="text-gray-400 text-sm">TogethrTask - An Advanced and Collaborative User Task Manager</p>
               </div>
             </motion.div>
 
