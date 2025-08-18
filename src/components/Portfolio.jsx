@@ -147,7 +147,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="text-white min-h-screen">
+    <div className="text-white min-h-screen bg-black">
       {/* Header with animation */}
 
 
@@ -155,7 +155,7 @@ export default function Portfolio() {
       {/* Video Background Container */}
       <div className="fixed inset-0 w-full h-full -z-10">
         {/* Your uploaded video - remove the placeholder gradient */}
-        <video 
+        {/* <video 
           autoPlay 
           muted 
           loop 
@@ -165,7 +165,7 @@ export default function Portfolio() {
           <source src="/6797-196071980.mp4" type="video/mp4" />
           <source src="./6797-196071980.mp4" type="video/mp4" />
           <source src="6797-196071980.mp4" type="video/mp4" />
-        </video>
+        </video> */}
         
         {/* Video Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10" />
